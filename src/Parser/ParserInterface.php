@@ -6,6 +6,8 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 interface ParserInterface
 {
+    const CSV_SEPARATOR = ";";
+
     /**
      * Returns parsing results
      *
@@ -50,9 +52,9 @@ interface ParserInterface
     public function getEntityClassName();
 
     /**
-     * Returns validation groups if required or false if no validation
+     * Returns validation groups. If no groups are defined, validation is disabled.
      *
-     * @return array|null
+     * @return array
      */
     public function getValidationGroups();
 

@@ -13,8 +13,6 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
  */
 abstract class AbstractParser
 {
-    const CSV_SEPARATOR = ";";
-
     /**
      * Path to CSV file
      *
@@ -120,7 +118,7 @@ abstract class AbstractParser
      * @param string|null $enclosure
      * @param boolean $skipFirstLine Should we skip first line of data (frequently used as columns headers)
      */
-    public function __construct($filePath = null, $separator = self::CSV_SEPARATOR, $enclosure = null, $skipFirstLine = true)
+    public function __construct($filePath = null, $separator = ParserInterface::CSV_SEPARATOR, $enclosure = null, $skipFirstLine = true)
     {
         $this->filePath         = $filePath;
         $this->separator        = $separator;
@@ -187,11 +185,11 @@ abstract class AbstractParser
     /**
      * Defines a Validator
      *
-     * @param ValidatorInterface $validator
+     * @param ValidatorInterface|null $validator
      *
      * @return $this
      */
-    public function setValidator(ValidatorInterface $validator)
+    public function setValidator(ValidatorInterface $validator = null)
     {
         $this->validator = $validator;
 
@@ -292,7 +290,10 @@ abstract class AbstractParser
     protected function handleLineData(array $data, $lineNo)
     {
         $className  = $this->getEntityClassName();
-        $accessor   = PropertyAccess::createPropertyAccessor();
+        $accessor   = PropertyAccess::createPropertyAccessorBuilder()
+            ->enableExceptionOnInvalidIndex()
+            ->getPropertyAccessor();
+
         $map        = $this->getMappingDefinition();
 
         $resultClassName    = $this->getResultClassName();
@@ -332,7 +333,7 @@ abstract class AbstractParser
         $final->finalize();
 
         $validationGroups = $this->getValidationGroups();
-        if ($validationGroups !== false) {
+        if (is_array($validationGroups) && count($validationGroups)) {
             if (null === $this->validator) {
                 throw new \LogicException('Validation is enabled but no Validator configured. Please use setValidator().');
             }
@@ -378,11 +379,14 @@ abstract class AbstractParser
     abstract public function getEntityClassName();
 
     /**
-     * Returns validation groups if required or false if no validation
+     * Returns validation groups if required. If no validation groups are defined, the validation is disabled.
      *
-     * @return array|null
+     * @return array
      */
-    abstract public function getValidationGroups();
+    public function getValidationGroups()
+    {
+        return array();
+    }
 
     /**
      * @return int

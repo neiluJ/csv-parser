@@ -1,0 +1,9 @@
+date;order_id;client_name;address;postal_code;country;amount
+2019-04-15;678945;"Laurent Doe";"12 avenue PhpUnit";34000;France;12
+2019-03-12;987564;"Ruh Doe";"15 rue du test";31001;France;50,53
+2019-05-01;123456;"Julien Doe";"125 rue PHP";34440;France;69,12
+2019-02-09;456123;"Gérard Doe";"15 blvd Bouchard";76000;France;789,10
+2019-01-01;965478;"Jean-Luc Doe";"15 rue du test";34000;France;5,00
+2019-05-01;126578;"Bernard Doe";"15 rue Symfony";75000;France;33,53
+2019-05-01;216543;"Maël Doe";"Disneyland Paris";77000;France;1250,53
+2019-05-01;987521;"Gros Doe";"15 rue de Behat";98520;France;50,98
