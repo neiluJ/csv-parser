@@ -1,6 +1,8 @@
 {
     "name": "kaliop/csv-parser",
-    "description": "PHP CSV Parser",
+    "description": "PHP/OOP CSV Parser",
+    "keywords": ["csv", "data", "data-import", "excel", "parser", "library"],
+    "homepage": "https://tech.kaliop.com",
     "type": "library",
     "require": {
         "symfony/validator": "3.4.x-dev",
@@ -14,9 +16,16 @@
         {
             "name": "Team Symfony",
             "email": "team-symfony@kaliop.com"
+        },
+        {
+            "name": "Julien Ballestracci",
+            "email": "julien@nitronet.org"
+        },
+        {
+            "name": "Laurent Blanc-Pattin",
+            "email": "lblancpattin@kaliop.com"
         }
     ],
-    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "Kaliop\\CsvParser\\": "./src"
