@@ -1,6 +1,19 @@
 <?php
+/**
+ * This file is part of the CsvParser package
+ *
+ * @author Team Symfony @ Kaliop <team-symfony@kaliop.com>
+ */
+
 namespace Kaliop\CsvParser;
 
+
+/**
+ * Class ColumnHelper
+ * Some utilities...
+ *
+ * @package Kaliop\CsvParser
+ */
 class ColumnHelper
 {
     /**

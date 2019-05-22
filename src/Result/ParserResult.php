@@ -1,8 +1,23 @@
 <?php
+/**
+ * This file is part of the CsvParser package
+ *
+ * @author Team Symfony @ Kaliop <team-symfony@kaliop.com>
+ */
+
 namespace Kaliop\CsvParser\Result;
+
 
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 
+/**
+ * Class ParserResult
+ *
+ * This class is the default parser result container. It can be extended to allow the developer to
+ * fully customize its parsing results and add special routines within the finalize() method.
+ *
+ * @package Kaliop\CsvParser\Result
+ */
 class ParserResult implements ParserResultInterface
 {
     /**

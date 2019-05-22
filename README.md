@@ -1,6 +1,14 @@
 # CSV Parser Library
 
 This library allows you to define your CSV parsing in OOP style, allowing you to easily filter and test your imports. 
+It's been in production on various large clients with multiples complex imports for quite some time now.
+
+Main advantages are:
+- OOP-style: One *Parser* class per import = meaningful for developers working on the project.
+- Testable: A fixture csv and you can easily write tests for the import.
+- Fully Customizable: each parsed result is also a PHP class where the developer can add its own logic.
+- Lightly coupled: this package depends only on Symfony's Validator. Any database/persistence stuff is possible (see example below).
+
 
 ## Installation
 

@@ -1,8 +1,20 @@
 <?php
+/**
+ * This file is part of the CsvParser package
+ *
+ * @author Team Symfony @ Kaliop <team-symfony@kaliop.com>
+ */
+
 namespace Kaliop\CsvParser\Result;
+
 
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 
+/**
+ * Interface ParserResultInterface
+ *
+ * @package Kaliop\CsvParser\Result
+ */
 interface ParserResultInterface
 {
     /**

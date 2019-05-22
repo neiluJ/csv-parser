@@ -1,9 +1,20 @@
 <?php
+/**
+ * This file is part of the CsvParser package
+ *
+ * @author Team Symfony @ Kaliop <team-symfony@kaliop.com>
+ */
+
 namespace Kaliop\CsvParser\Parser;
 
 use Kaliop\CsvParser\Result\ParserResult;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
+/**
+ * Interface ParserInterface
+ *
+ * @package Kaliop\CsvParser\Parser
+ */
 interface ParserInterface
 {
     const CSV_SEPARATOR = ";";

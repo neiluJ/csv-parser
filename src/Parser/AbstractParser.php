@@ -1,6 +1,12 @@
 <?php
+/**
+ * This file is part of the CsvParser package
+ *
+ * @author Team Symfony @ Kaliop <team-symfony@kaliop.com>
+ */
 
 namespace Kaliop\CsvParser\Parser;
+
 
 use Kaliop\CsvParser\Result\ParserResultInterface;
 use Kaliop\CsvParser\Result\ParserResult;
@@ -9,7 +15,10 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 /**
  * Class AbstractParser
- * @package ClaaslocBundle\CLAAS\CSV
+ *
+ * This is the class one should extend when building a CSV Parser.
+ *
+ * @package Kaliop\CsvParser\Parser
  */
 abstract class AbstractParser
 {
@@ -130,7 +139,6 @@ abstract class AbstractParser
      * Defines CSV separator (fields)
      *
      * @param string $separator
-     *
      * @return $this
      */
     public function setSeparator($separator)
@@ -144,7 +152,6 @@ abstract class AbstractParser
      * Tells if we should skip first line in CSV (commonly used as column titles)
      *
      * @param boolean $skipFirstLine
-     *
      * @return $this
      */
     public function setSkipFirstLine($skipFirstLine)
@@ -158,7 +165,6 @@ abstract class AbstractParser
      * Tells if we should skip last column in CSV
      *
      * @param boolean $skipLastColumn
-     *
      * @return $this
      */
     public function setSkipLastColumn($skipLastColumn)
@@ -172,7 +178,6 @@ abstract class AbstractParser
      * if > 0, check the minimum column count of the CSV data
      *
      * @param int $minColumnCount
-     *
      * @return $this
      */
     public function setMinColumnCount($minColumnCount)
@@ -186,7 +191,6 @@ abstract class AbstractParser
      * Defines a Validator
      *
      * @param ValidatorInterface|null $validator
-     *
      * @return $this
      */
     public function setValidator(ValidatorInterface $validator = null)
@@ -225,6 +229,7 @@ abstract class AbstractParser
      *
      * @param null $filePath
      * @return array
+     *
      * @throws \Exception
      */
     public function execute($filePath = null)
@@ -430,7 +435,9 @@ abstract class AbstractParser
 
     /**
      * Returns parsing results
+     *
      * @return array
+     *
      * @throws \Exception
      */
     public function getResults()
